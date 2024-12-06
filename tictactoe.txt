@@ -1,0 +1,105 @@
+import java.util.Scanner;
+import java.util.Random; 
+public class TicTacToe {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner key = new Scanner(System.in);
+		Random r = new Random();
+		
+		//players score
+		int player = 0;
+		//computers score
+		int computer=0;
+		
+		//defining the amount of rounds
+		int rounds=0;
+		
+		//allows everything to happen as long as less than 3 rounds have been played
+		while (rounds <3)
+		{
+			//gets the users input
+			System.out.println("Enter \"rock\", \"paper\" or \"scissors\"");
+			String playerTurn = key.next().toLowerCase(); 
+			
+			//uses random to generate the computers score
+			int computerNumber = r.nextInt(3);
+			String computerTurn = "";
+			switch (computerNumber)
+			{
+			case 0:
+				computerTurn ="rock";
+				break;
+			case 1:
+				computerTurn="paper";
+				break;
+			case 2:
+				computerTurn="scissors";
+				break;
+			}	
+			System.out.println("Computer chose "+computerTurn);
+			
+			//seeing if the user wins the round depending on their score
+			if (playerTurn.equals("rock") || playerTurn.equals("paper")||playerTurn.equals("scissors"))
+			{
+				if(playerTurn.equals(computerTurn))
+				{
+					System.out.println("You tied!");
+				}
+			    else if ((playerTurn.equals("rock") && computerTurn.equals("scissors")) || (playerTurn.equals("paper") && computerTurn.equals("rock")) || (playerTurn.equals("scissors") && computerTurn.equals("paper")))
+			    {
+                 System.out.println("You win the round!");
+                 player++;
+                } 
+			    else 
+			    {
+                 System.out.println("Computer wins the round!");
+                 computer++;
+                }
+			 }   
+		     else 
+
+		     {
+              System.out.println("Invalid input! Computer gains a point.");
+              computer++;
+		     }
+				
+		
+			//makes the round change
+			rounds++; 
+		    System.out.println("Score: You: " + player + " | Computer: " + computer);
+		    System.out.println(); 
+		        
+
+		       
+		    
+		}
+			//seeing who wins the game depending on who won the rounds
+		    System.out.println("Final Score: You: " + player + " | Computer: " + computer);
+		    if (player > computer)
+		       {
+		        System.out.println("You win the game!");
+		       } 
+		    else if (computer > player)
+		        {
+		            System.out.println("Computer wins the game!");
+		        }
+		    else 
+		    {
+		     System.out.println("It's a tie game!");
+		    }
+
+		       
+         
+				
+		
+				
+			
+					
+		
+
+			
+		
+	}
+
+}
